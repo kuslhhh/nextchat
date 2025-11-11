@@ -27,7 +27,8 @@ export const registerUser = async (req: Request, res: Response) => {
       })
 
       res.status(201).json({
-         message: "User Created", user: {
+         message: "User Created", 
+         user: {
             id: users.id,
             username: users.username
          }
@@ -63,4 +64,8 @@ export const loginUser = async (req: Request, res: Response) => {
       console.error(err);
       res.status(401).json({ message: "Server Error" })
    }
+}
+
+export const me = (req: Request, res: Response) => {
+   res.send("Hello from authenticated route")
 }

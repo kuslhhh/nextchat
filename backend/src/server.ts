@@ -3,6 +3,7 @@ import http from "http";
 import { Server } from "socket.io";
 import cors from "cors";
 import dotenv from "dotenv";
+import authRoutes from "./routes/authRoutes"
 import prisma from "./config/prisma"
 
 dotenv.config();
@@ -11,6 +12,7 @@ app.use(cors());
 app.use(express.json());
 
 app.get("/", (req, res) => res.send("Secure Chat Backend Running"));
+app.use("/api/auth", authRoutes)
 
 const server = http.createServer(app);
 const io = new Server(server, {
