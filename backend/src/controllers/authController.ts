@@ -3,7 +3,6 @@ import type { Request, Response } from "express";
 import jwt from "jsonwebtoken"
 import prisma from "../config/prisma";
 
-
 const JWT_SECRET = process.env.JWT_SECRET || "KSHKSHKSH"
 
 export const registerUser = async (req: Request, res: Response) => {
